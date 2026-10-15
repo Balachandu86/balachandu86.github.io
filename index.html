@@ -1,141 +1,217 @@
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cybersecurity Meets Ancient Wisdom | Balachandu</title>
-  <meta name="description" content="A 30 day LinkedIn blog series exploring cybersecurity through timeless wisdom and human values.">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="Portfolio of Sandrani Balachandu — cybersecurity, Linux, networking, secure systems, and technical education.">
+  <title>Sandrani Balachandu | Cybersecurity Portfolio</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #faf9f6;
-      color: #242424;
-      line-height: 1.7;
+    :root {
+      --bg: #0b1220; --panel: #111b2d; --panel-2: #162238; --text: #edf3ff;
+      --muted: #a8b5ca; --line: #26354d; --accent: #69e0c0; --accent-2: #89aaff;
+      --shadow: 0 18px 50px rgba(0,0,0,.22);
     }
-    header, main, footer {
-      max-width: 850px;
-      margin: auto;
-      padding: 28px 22px;
-    }
-    header {
-      padding-top: 70px;
-      padding-bottom: 45px;
-    }
-    h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height: 1.15;
-    }
-    h2 { margin-top: 40px; }
-    .intro { color: #555; font-size: 1.1rem; }
-    .blog {
-      border-bottom: 1px solid #ddd;
-      padding: 15px 0;
-    }
-    a { color: #175c50; }
-    .button {
-      display: inline-block;
-      background: #175c50;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 6px;
-      text-decoration: none;
-      margin-top: 12px;
-    }
-    footer {
-      border-top: 1px solid #ddd;
-      color: #666;
-      font-size: 0.9rem;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; font: 16px/1.7 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; color: var(--text); background: radial-gradient(ellipse at 15% 0%, #152747 0, transparent 38%), var(--bg); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(11,18,32,.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { color: var(--text); font-weight: 800; letter-spacing: -.03em; white-space: nowrap; }
+    .brand span { color: var(--accent); }
+    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+    nav button { border: 1px solid transparent; border-radius: 999px; background: transparent; color: var(--muted); padding: 9px 13px; cursor: pointer; font: inherit; font-size: .92rem; }
+    nav button:hover, nav button.active { color: var(--text); border-color: var(--line); background: var(--panel-2); }
+    main { padding: 46px 0 70px; }
+    .tab-panel { display: none; animation: fade .25s ease; }
+    .tab-panel.active { display: block; }
+    @keyframes fade { from { opacity: .45; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+    .hero { min-height: 430px; display: grid; grid-template-columns: 1.45fr .75fr; align-items: center; gap: 42px; padding: 36px 0 60px; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; font-size: .78rem; font-weight: 800; letter-spacing: .16em; }
+    h1 { font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.04; letter-spacing: -.065em; margin: 14px 0 22px; }
+    h1 span { color: var(--accent); }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.2; letter-spacing: -.04em; margin: 0 0 12px; }
+    h3 { margin: 0 0 8px; font-size: 1.15rem; }
+    p { margin: 0 0 14px; }
+    .lead { color: var(--muted); font-size: 1.13rem; max-width: 690px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 12px; padding: 11px 16px; font-weight: 750; color: var(--text); background: var(--panel); }
+    .btn.primary { color: #071711; background: var(--accent); border-color: var(--accent); }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .hero-card, .card, .metric { border: 1px solid var(--line); background: linear-gradient(145deg, rgba(22,34,56,.94), rgba(17,27,45,.92)); border-radius: 20px; box-shadow: var(--shadow); }
+    .hero-card { padding: 26px; }
+    .avatar { width: 74px; height: 74px; border-radius: 22px; display: grid; place-items: center; color: #071711; background: var(--accent); font-size: 1.6rem; font-weight: 900; margin-bottom: 22px; }
+    .hero-card .role { color: var(--muted); margin-bottom: 20px; }
+    .statline { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+    .statline strong { color: var(--accent); }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin: 24px 0 22px; }
+    .section-head p { color: var(--muted); max-width: 650px; margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card { padding: 23px; }
+    .card p, .muted { color: var(--muted); }
+    .card-top { display: flex; justify-content: space-between; gap: 14px; align-items: start; }
+    .date { color: var(--accent); font-size: .82rem; font-weight: 750; white-space: nowrap; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tag { font-size: .82rem; color: #dce7fa; border: 1px solid #31435e; background: #192740; border-radius: 999px; padding: 5px 10px; }
+    .skill-group { margin-bottom: 16px; }
+    .skill-group h3 { color: var(--accent); }
+    .timeline { display: grid; gap: 14px; }
+    .timeline .card { position: relative; }
+    .detail { padding-left: 18px; margin: 12px 0 0; color: var(--muted); }
+    .detail li { margin: 5px 0; }
+    .blog-intro { margin-bottom: 24px; }
+    .blog-card { overflow: hidden; }
+    .blog-number { display: inline-grid; place-items: center; min-width: 48px; height: 42px; border-radius: 12px; background: rgba(105,224,192,.12); color: var(--accent); font-weight: 850; margin-bottom: 14px; }
+    .embed-wrap { margin-top: 16px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: #17202f; overflow: hidden; }
+    .embed-wrap iframe { display: block; width: 100%; min-height: 420px; border: 0; }
+    .embed-note { padding: 15px; color: #344054; font-size: .9rem; }
+    .embed-note a { color: #0a66c2; font-weight: 700; }
+    .callout { border-left: 3px solid var(--accent); padding: 14px 18px; background: rgba(105,224,192,.07); border-radius: 0 12px 12px 0; color: var(--muted); margin: 22px 0; }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 16px; }
+    .contact-link { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0 35px; color: var(--muted); font-size: .9rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 800px) { .nav { align-items: flex-start; flex-direction: column; padding: 15px 0; } nav { width: 100%; } nav button { padding: 8px 10px; } .hero { grid-template-columns: 1fr; min-height: auto; gap: 20px; padding-top: 22px; } .grid.three { grid-template-columns: repeat(2, minmax(0,1fr)); } .contact-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { .wrap { width: min(100% - 28px, 1120px); } main { padding-top: 24px; } .grid, .grid.three { grid-template-columns: 1fr; } .section-head { display: block; } .section-head p { margin-top: 8px; } .card { padding: 19px; } .card-top { display: block; } .date { display: block; margin-bottom: 8px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }
   </style>
 </head>
 <body>
-
 <header>
-  <p>CYBERSECURITY · HUMAN WISDOM · REFLECTION</p>
-  <h1>Can ancient wisdom secure modern systems?</h1>
-  <p class="intro">
-    A 30 day journey exploring how cybersecurity
-    concepts connect with timeless wisdom, human
-    behaviour, and the way we live in a digital world.
-  </p>
-  <a class="button"
-     href="#blogs">Explore the 30 blogs</a>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Go to home">SB<span>.</span></a>
+    <nav aria-label="Main navigation" role="tablist">
+      <button class="active" role="tab" aria-selected="true" data-tab="home">Home</button>
+      <button role="tab" aria-selected="false" data-tab="about">About</button>
+      <button role="tab" aria-selected="false" data-tab="experience">Experience</button>
+      <button role="tab" aria-selected="false" data-tab="projects">Projects</button>
+      <button role="tab" aria-selected="false" data-tab="skills">Skills</button>
+      <button role="tab" aria-selected="false" data-tab="blogs">Blogs</button>
+      <button role="tab" aria-selected="false" data-tab="credentials">Credentials</button>
+      <button role="tab" aria-selected="false" data-tab="contact">Contact</button>
+    </nav>
+  </div>
 </header>
 
-<main>
-  <section>
-    <h2>About this series</h2>
-    <p>
-      Technology changes every day. Human behaviour,
-      however, continues to shape how we protect
-      ourselves and the systems around us.
-    </p>
-    <p>
-      Through this 30 day LinkedIn series, I explore
-      the connection between cybersecurity and
-      ancient wisdom, using simple ideas to understand
-      complex digital challenges.
-    </p>
+<main class="wrap">
+  <section id="home" class="tab-panel active" role="tabpanel">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Cybersecurity · Networking · Technical Education</div>
+        <h1>Hi, I'm<br><span>Sandrani Balachandu.</span></h1>
+        <p class="lead">Computer Science graduate focused on cybersecurity, secure systems, Linux, and networking. I enjoy turning complex technical concepts into practical knowledge people can use.</p>
+        <div class="actions">
+          <button class="btn primary" data-goto="projects">Explore my work ↗</button>
+          <button class="btn" data-goto="blogs">Read my blogs</button>
+          <a class="btn" href="https://github.com/Balachandu86" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="avatar">SB</div>
+        <h3>Cybersecurity & Networking</h3>
+        <p class="role">Security learner · Technical trainer · Builder</p>
+        <div class="statline"><span>Degree CGPA</span><strong>9.47 / 10</strong></div>
+        <div class="statline"><span>TryHackMe ranking</span><strong>Top 7%</strong></div>
+        <div class="statline"><span>Technical writing</span><strong>30-day series</strong></div>
+      </aside>
+    </div>
+    <div class="section-head"><div><div class="eyebrow">What I focus on</div><h2>Curiosity, practice, and clarity.</h2></div></div>
+    <div class="grid three">
+      <article class="card"><h3>🛡️ Security</h3><p>Network security, vulnerability assessment, IAM, incident response, and digital forensics.</p></article>
+      <article class="card"><h3>🌐 Networking & Linux</h3><p>Networking fundamentals, IP addressing, subnetting, troubleshooting, and Linux platforms.</p></article>
+      <article class="card"><h3>🎓 Teaching & writing</h3><p>Explaining technical topics through hands-on labs, examples, mentoring, and accessible writing.</p></article>
+    </div>
   </section>
 
-  <section id="blogs">
-    <h2>The 30 day series</h2>
-    <p>
-      Read the original articles on LinkedIn.
-      Select a title to open its post.
-    </p>
-
-    <!-- Replace each # with the LinkedIn post URL -->
-
-    <div class="blog">
-      <strong>Day 01</strong>
-      <a href="https://lnkd.in/p/g3A79Eiu" target="_blank" rel="noopener noreferrer">
-        𝐓𝐞𝐜𝐡 𝐂𝐨𝐦𝐩𝐚𝐧𝐢𝐞𝐬 𝐎𝐯𝐞𝐫𝐬𝐡𝐚𝐝𝐨𝐰𝐢𝐧𝐠 𝐓𝐞𝐜𝐡𝐧𝐨𝐥𝐨𝐠𝐲 𝐒𝐞𝐜𝐮𝐫𝐢𝐭𝐲 — 𝐀 𝐓𝐢𝐦𝐞𝐥𝐞𝐬𝐬 𝐏𝐞𝐫𝐬𝐩𝐞𝐜𝐭𝐢𝐯𝐞
-      </a>
+  <section id="about" class="tab-panel" role="tabpanel">
+    <div class="section-head"><div><div class="eyebrow">A little about me</div><h2>Technology makes more sense when it's shared.</h2></div></div>
+    <div class="grid">
+      <article class="card"><h3>Profile</h3><p>I'm a Computer Science graduate specialising in Cyber Security from Lovely Professional University. My interests span cybersecurity, networking, secure application design, Linux, and digital privacy.</p><p>I have experience teaching networking, cybersecurity, and programming concepts to learners at different levels. I value practical demonstrations and clear explanations over memorising concepts in isolation.</p></article>
+      <article class="card"><h3>Education</h3><div class="date">AUG 2023 — MAY 2026</div><h3 style="margin-top:8px">B.Sc. (Hons.) Computer Science — Cyber Security</h3><p>Lovely Professional University · Punjab, India</p><div class="tags"><span class="tag">CGPA: 9.47</span><span class="tag">Highest CGPA in cohort</span></div></article>
     </div>
-
-    <div class="blog">
-      <strong>Day 02</strong>
-      <a href="https://lnkd.in/p/gxten8A3" target="_blank" rel="noopener noreferrer">
-        𝐏𝐡𝐢𝐬𝐡𝐢𝐧𝐠 𝐀𝐭𝐭𝐚𝐜𝐤𝐬 × 𝐂𝐨𝐧𝐭𝐫𝐨𝐥 𝐨𝐟 𝐌𝐢𝐧𝐝
-      </a>
-    </div>
-
-    <div class="blog">
-      <strong>Day 03</strong>
-      <a href="https://lnkd.in/p/gHxnMWVG" target="_blank" rel="noopener noreferrer">
-        𝐏𝐚𝐬𝐬𝐰𝐨𝐫𝐝 𝐒𝐞𝐜𝐮𝐫𝐢𝐭𝐲 𝐱 𝐒𝐞𝐥𝐟 𝐃𝐢𝐬𝐜𝐢𝐩𝐥𝐢𝐧𝐞
-      </a>
-    </div>
-
-    <!-- Copy the blog block above for Days 04 to 30.
-         Add your actual titles and LinkedIn URLs. -->
-
+    <div class="callout">My approach: understand the fundamentals, practise in a lab, document what I learn, and make the next person's learning easier.</div>
   </section>
 
-  <section>
-    <h2>About the author</h2>
-    <p>
-      I am Sandrani Balachandu, a Computer Science
-      graduate specialising in Cybersecurity.
-      I am interested in cybersecurity, digital
-      privacy, and making technical ideas easier
-      for people to understand.
-    </p>
-    <a href="https://www.linkedin.com/in/chandu-sandrani"
-       target="_blank" rel="noopener noreferrer">
-      Connect with me on LinkedIn
-    </a>
+  <section id="experience" class="tab-panel" role="tabpanel">
+    <div class="section-head"><div><div class="eyebrow">Professional journey</div><h2>Experience</h2><p>Training, mentoring, and making technical concepts approachable.</p></div></div>
+    <div class="timeline">
+      <article class="card"><div class="card-top"><div><h3>Freelance Technical Trainer</h3><p>Networking concepts · Undergraduate learners</p></div><span class="date">JUN 2026 — PRESENT</span></div><ul class="detail"><li>Conduct training sessions on networking fundamentals, protocols, IP addressing, subnetting, and troubleshooting.</li><li>Use practical examples and interactive approaches to simplify complex topics.</li><li>Mentor students during coursework and laboratory activities.</li></ul></article>
+      <article class="card"><div class="card-top"><div><h3>Cybersecurity Trainer</h3><p>Abreonix Cyber Security Private Limited</p></div><span class="date">MAR — JUN 2026</span></div><ul class="detail"><li>Delivered cybersecurity training covering foundational and intermediate concepts.</li><li>Supported hands-on demonstrations in network security, vulnerability assessment, and ethical hacking concepts.</li><li>Helped develop training materials, exercises, and technical learning resources.</li></ul></article>
+      <article class="card"><div class="card-top"><div><h3>Coding Educator (Freelancer)</h3><p>BrightChamps</p></div><span class="date">MAR — AUG 2026</span></div><ul class="detail"><li>Taught coding fundamentals, problem-solving, and logical reasoning to school students.</li><li>Guided students through beginner-friendly, project-based coding activities.</li><li>Adapted teaching methods to different learning levels.</li></ul></article>
+    </div>
+  </section>
+
+  <section id="projects" class="tab-panel" role="tabpanel">
+    <div class="section-head"><div><div class="eyebrow">Selected work</div><h2>Projects</h2><p>Security-minded systems and backend development.</p></div></div>
+    <div class="grid">
+      <article class="card"><div class="eyebrow">FEB — MAY 2026</div><h3 style="margin-top:8px">AstraSecure — Secure Messaging System</h3><p>Worked on a mission-aware secure messaging architecture combining hardware-bound identity with mission-based cryptographic isolation.</p><ul class="detail"><li>Hardware-backed identity provisioning using Android Keystore.</li><li>Secure document handling with AES-256 encryption and controlled access.</li><li>Metadata protection using message padding, batching, and transmission-timing randomisation.</li></ul><div class="tags"><span class="tag">Android</span><span class="tag">Android Keystore</span><span class="tag">Signal Protocol</span><span class="tag">AES-256</span><span class="tag">SHA-256</span><span class="tag">Secure REST API</span></div><p style="margin-top:18px"><a href="https://github.com/Balachandu86" target="_blank" rel="noopener noreferrer">View GitHub profile ↗</a></p></article>
+      <article class="card"><div class="eyebrow">NOV 2025</div><h3 style="margin-top:8px">Net Banking System — Backend Banking Application</h3><p>Built a backend banking application to model secure account management and transaction processing.</p><ul class="detail"><li>Integrated Python and MySQL for persistent storage and database communication.</li><li>Designed normalised relational schemas and improved SQL query efficiency.</li><li>Applied secure data-handling practices to simulated banking workflows.</li></ul><div class="tags"><span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">Database Design</span><span class="tag">Backend</span></div><p style="margin-top:18px"><a href="https://github.com/Balachandu86" target="_blank" rel="noopener noreferrer">View GitHub profile ↗</a></p></article>
+    </div>
+    <div class="callout">Project-specific repository URLs were not listed in the CV, so these buttons currently point to the GitHub profile. Replace them with each project's direct repository URL when available.</div>
+  </section>
+
+  <section id="skills" class="tab-panel" role="tabpanel">
+    <div class="section-head"><div><div class="eyebrow">Toolbox</div><h2>Skills & technologies</h2><p>A snapshot of the languages, platforms, tools, and concepts listed in my CV.</p></div></div>
+    <div class="grid">
+      <article class="card skill-group"><h3>Languages & scripting</h3><div class="tags"><span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">PHP</span><span class="tag">Bash</span></div></article>
+      <article class="card skill-group"><h3>Networking & security tools</h3><div class="tags"><span class="tag">Nmap</span><span class="tag">Wireshark</span><span class="tag">Cisco Packet Tracer</span><span class="tag">Autopsy</span></div></article>
+      <article class="card skill-group"><h3>Cloud & platforms</h3><div class="tags"><span class="tag">Linux</span><span class="tag">Ubuntu</span><span class="tag">Kali Linux</span><span class="tag">AWS Cloud</span><span class="tag">TryHackMe</span></div></article>
+      <article class="card skill-group"><h3>Security concepts</h3><div class="tags"><span class="tag">IAM</span><span class="tag">Vulnerability Assessment</span><span class="tag">Incident Response</span><span class="tag">Network Security</span><span class="tag">Digital Forensics</span></div></article>
+      <article class="card skill-group"><h3>Core computer science</h3><div class="tags"><span class="tag">Data Structures</span><span class="tag">DBMS</span><span class="tag">Operating Systems</span><span class="tag">Computer Networks</span><span class="tag">Software Engineering</span></div></article>
+      <article class="card skill-group"><h3>Working style</h3><div class="tags"><span class="tag">Analytical Thinking</span><span class="tag">Problem-Solving</span><span class="tag">Time Management</span><span class="tag">Mentoring</span></div></article>
+    </div>
+  </section>
+
+  <section id="blogs" class="tab-panel" role="tabpanel">
+    <div class="section-head blog-intro"><div><div class="eyebrow">Technical writing</div><h2>Cybersecurity Through Ancient Wisdom</h2><p>A 30-day LinkedIn writing series connecting security concepts with timeless philosophical principles and human behaviour.</p></div></div>
+    
+    <div class="grid">
+      <article class="card blog-card"><div class="blog-number">01</div><h3>Tech Companies Overshadowing Technology Security — A Timeless Perspective</h3><p class="muted">Security culture · Organisational priorities</p><div class="embed-wrap"><div class="embed-note"><strong>LinkedIn post embed</strong><p><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7447349063064285184?collapsed=1" height="263" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe></p><a href="https://lnkd.in/p/g3A79Eiu" target="_blank" rel="noopener noreferrer">Open original post ↗</a></div></div></article>
+      <article class="card blog-card"><div class="blog-number">02</div><h3>Phishing Attacks × Control of Mind</h3><p class="muted">Phishing awareness · Human behaviour</p><div class="embed-wrap"><div class="embed-note"><strong>LinkedIn post embed</strong><p><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7447716535114104832?collapsed=1" height="263" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe></p><a href="https://lnkd.in/p/gxten8A3" target="_blank" rel="noopener noreferrer">Open original post ↗</a></div></div></article>
+      <article class="card blog-card"><div class="blog-number">03</div><h3>Password Security × Self Discipline</h3><p class="muted">Password hygiene · Personal discipline</p><div class="embed-wrap"><div class="embed-note"><strong>LinkedIn post embed</strong><p><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7448075985603829760?collapsed=1" height="263" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe></p><a href="https://lnkd.in/p/gHxnMWVG" target="_blank" rel="noopener noreferrer">Open original post ↗</a></div></div></article>
+      <article class="card blog-card"><div class="blog-number">04–30</div><h3>More posts coming here</h3><p class="muted">Add the remaining posts as you publish them.</p><p>Each post can have its own embedded LinkedIn card, title, and short topic description.</p></article>
+    </div>
+  </section>
+
+  <section id="credentials" class="tab-panel" role="tabpanel">
+    <div class="section-head"><div><div class="eyebrow">Learning & recognition</div><h2>Credentials and achievements</h2></div></div>
+    <div class="grid">
+      <article class="card"><h3>Certifications</h3><ul class="detail"><li><strong>CompTIA Security+</strong> — SY0-701 · May 2026</li><li><strong>Quick Heal Certified Digital Forensic Investigator</strong> — Apr 2026</li><li><strong>CompTIA Network+</strong> — N10-009 · Feb 2026</li><li><strong>Oracle Certified AI Foundations Associate</strong> — Jan 2026</li></ul></article>
+      <article class="card"><h3>Certificates & training</h3><ul class="detail"><li>IT Fundamentals — Quick Heal · Feb 2026</li><li>Network Configuration and Management — Quick Heal · Feb 2026</li><li>Pre Security — TryHackMe · Feb 2026</li><li>Cyber Security training — EdiGlobe · Feb–Mar 2025</li></ul></article>
+      <article class="card"><h3>Top 7% — TryHackMe</h3><p>Ranked within the top 7% of global users through hands-on labs focused on network analysis, exploitation fundamentals, and defensive security practices.</p><p><a href="https://tryhackme.com/p/Balu86" target="_blank" rel="noopener noreferrer">View TryHackMe profile ↗</a></p></article>
+      <article class="card"><h3>Academic & leadership</h3><ul class="detail"><li>Highest CGPA in cohort — Jun 2026; maintained TGPA above 9.0.</li><li>Student Academic Advisory Committee Member, School of Computer Applications, LPU — Apr 2025.</li></ul></article>
+    </div>
+  </section>
+
+  <section id="contact" class="tab-panel" role="tabpanel">
+    <div class="section-head"><div><div class="eyebrow">Let's connect</div><h2>Contact</h2><p>For cybersecurity, networking, training, or collaboration opportunities.</p></div></div>
+    <div class="contact-grid">
+      <article class="card"><h3>Find me online</h3><a class="contact-link" href="mailto:chandusandrani5183@gmail.com">chandusandrani5183@gmail.com</a><a class="contact-link" href="https://www.linkedin.com/in/chandu-sandrani" target="_blank" rel="noopener noreferrer">LinkedIn profile ↗</a><a class="contact-link" href="https://github.com/Balachandu86" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="contact-link" href="https://tryhackme.com/p/Balu86" target="_blank" rel="noopener noreferrer">TryHackMe ↗</a><p class="muted" style="margin-top:15px">Phone: +91-8465818486</p></article>
+      <article class="card"><h3>What I bring</h3><p>Security-focused thinking, networking fundamentals, hands-on learning, and the ability to communicate technical concepts clearly.</p><p>I'm interested in opportunities where I can continue developing practical security skills while contributing to teams and helping others learn.</p><div class="actions"><a class="btn primary" href="mailto:chandusandrani5183@gmail.com">Email me ↗</a><a class="btn" href="https://www.linkedin.com/in/chandu-sandrani" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a></div></article>
+    </div>
   </section>
 </main>
-
-<footer>
-  <p>© 2026 Sandrani Balachandu</p>
-  <p>Written with curiosity, reflection, and a
-     belief that security begins with awareness.</p>
-</footer>
-
+<footer><div class="wrap footer-row"><span>© 2026 Sandrani Balachandu</span><span>Built around security, curiosity, and continuous learning.</span></div></footer>
+<script>
+  const tabs = [...document.querySelectorAll('[data-tab]')];
+  const panels = [...document.querySelectorAll('.tab-panel')];
+  function showTab(id) {
+    panels.forEach(panel => panel.classList.toggle('active', panel.id === id));
+    tabs.forEach(tab => {
+      const active = tab.dataset.tab === id;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', String(active));
+    });
+    if (location.hash !== '#' + id) history.replaceState(null, '', '#' + id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  tabs.forEach(tab => tab.addEventListener('click', () => showTab(tab.dataset.tab)));
+  document.querySelectorAll('[data-goto]').forEach(button => button.addEventListener('click', () => showTab(button.dataset.goto)));
+  const initial = location.hash.slice(1);
+  if (panels.some(panel => panel.id === initial)) showTab(initial);
+</script>
 </body>
 </html>
