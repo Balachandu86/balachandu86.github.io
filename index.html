@@ -73,7 +73,9 @@
     .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 16px; }
     .contact-link { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
     footer { border-top: 1px solid var(--line); padding: 25px 0 35px; color: var(--muted); font-size: .9rem; }
-    .footer-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .footer-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; } 
+    .verify-link {  display: inline-block; margin-left: 8px; color: var(--accent); font-size: 0.85rem; font-weight: 700; white-space: nowrap; text-decoration: none; }
+    .verify-link:hover {text-decoration: underline;}
     @media (max-width: 800px) { .nav { align-items: flex-start; flex-direction: column; padding: 15px 0; } nav { width: 100%; } nav button { padding: 8px 10px; } .hero { grid-template-columns: 1fr; min-height: auto; gap: 20px; padding-top: 22px; } .grid.three { grid-template-columns: repeat(2, minmax(0,1fr)); } .contact-grid { grid-template-columns: 1fr; } }
     @media (max-width: 560px) { .wrap { width: min(100% - 28px, 1120px); } main { padding-top: 24px; } .grid, .grid.three { grid-template-columns: 1fr; } .section-head { display: block; } .section-head p { margin-top: 8px; } .card { padding: 19px; } .card-top { display: block; } .date { display: block; margin-bottom: 8px; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }
@@ -104,9 +106,10 @@
         <h1>Hi, I'm<br><span>Sandrani Balachandu.</span></h1>
         <p class="lead">Computer Science graduate focused on cybersecurity, secure systems, Linux, and networking. I enjoy turning complex technical concepts into practical knowledge people can use.</p>
         <div class="actions">
-          <button class="btn primary" data-goto="projects">Explore my work ↗</button>
+          <button class="btn primary" data-goto="projects">Explore my work</button>
           <button class="btn" data-goto="blogs">Read my blogs</button>
-          <a class="btn" href="https://github.com/Balachandu86" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="btn" href="https://drive.google.com/drive/folders/1vVauKbnxORxXruEa6nOr8IPpbR23m-y6?usp=sharing" target="_blank" rel="noopener noreferrer">View Latest CV</a>
+          <a class="btn" href="https://github.com/Balachandu86" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </div>
       <aside class="hero-card">
@@ -114,7 +117,7 @@
         <h3>Cybersecurity & Networking</h3>
         <p class="role">Security learner · Technical trainer · Builder</p>
         <div class="statline"><span>Degree CGPA</span><strong>9.47 / 10</strong></div>
-        <div class="statline"><span>TryHackMe ranking</span><strong>Top 7%</strong></div>
+        <div class="statline"><span>TryHackMe ranking</span><strong>Top 6%</strong></div>
         <div class="statline"><span>Technical writing</span><strong>30-day series</strong></div>
       </aside>
     </div>
@@ -147,10 +150,9 @@
   <section id="projects" class="tab-panel" role="tabpanel">
     <div class="section-head"><div><div class="eyebrow">Selected work</div><h2>Projects</h2><p>Security-minded systems and backend development.</p></div></div>
     <div class="grid">
-      <article class="card"><div class="eyebrow">FEB — MAY 2026</div><h3 style="margin-top:8px">AstraSecure — Secure Messaging System</h3><p>Worked on a mission-aware secure messaging architecture combining hardware-bound identity with mission-based cryptographic isolation.</p><ul class="detail"><li>Hardware-backed identity provisioning using Android Keystore.</li><li>Secure document handling with AES-256 encryption and controlled access.</li><li>Metadata protection using message padding, batching, and transmission-timing randomisation.</li></ul><div class="tags"><span class="tag">Android</span><span class="tag">Android Keystore</span><span class="tag">Signal Protocol</span><span class="tag">AES-256</span><span class="tag">SHA-256</span><span class="tag">Secure REST API</span></div><p style="margin-top:18px"><a href="https://github.com/Balachandu86" target="_blank" rel="noopener noreferrer">View GitHub profile ↗</a></p></article>
-      <article class="card"><div class="eyebrow">NOV 2025</div><h3 style="margin-top:8px">Net Banking System — Backend Banking Application</h3><p>Built a backend banking application to model secure account management and transaction processing.</p><ul class="detail"><li>Integrated Python and MySQL for persistent storage and database communication.</li><li>Designed normalised relational schemas and improved SQL query efficiency.</li><li>Applied secure data-handling practices to simulated banking workflows.</li></ul><div class="tags"><span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">Database Design</span><span class="tag">Backend</span></div><p style="margin-top:18px"><a href="https://github.com/Balachandu86" target="_blank" rel="noopener noreferrer">View GitHub profile ↗</a></p></article>
+      <article class="card"><div class="eyebrow">FEB — MAY 2026</div><h3 style="margin-top:8px">AstraSecure — Secure Messaging System</h3><p>Worked on a mission-aware secure messaging architecture combining hardware-bound identity with mission-based cryptographic isolation.</p><ul class="detail"><li>Hardware-backed identity provisioning using Android Keystore.</li><li>Secure document handling with AES-256 encryption and controlled access.</li><li>Metadata protection using message padding, batching, and transmission-timing randomisation.</li></ul><div class="tags"><span class="tag">Android</span><span class="tag">Android Keystore</span><span class="tag">Signal Protocol</span><span class="tag">AES-256</span><span class="tag">SHA-256</span><span class="tag">Secure REST API</span></div><p style="margin-top:18px"><a href="https://github.com/Balachandu86/AstraSecure" target="_blank" rel="noopener noreferrer">View GitHub profile ↗</a></p></article>
+      <article class="card"><div class="eyebrow">NOV 2025</div><h3 style="margin-top:8px">Net Banking System — Backend Banking Application</h3><p>Built a backend banking application to model secure account management and transaction processing.</p><ul class="detail"><li>Integrated Python and MySQL for persistent storage and database communication.</li><li>Designed normalised relational schemas and improved SQL query efficiency.</li><li>Applied secure data-handling practices to simulated banking workflows.</li></ul><div class="tags"><span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">Database Design</span><span class="tag">Backend</span></div></article>
     </div>
-    <div class="callout">Project-specific repository URLs were not listed in the CV, so these buttons currently point to the GitHub profile. Replace them with each project's direct repository URL when available.</div>
   </section>
 
   <section id="skills" class="tab-panel" role="tabpanel">
@@ -179,9 +181,9 @@
   <section id="credentials" class="tab-panel" role="tabpanel">
     <div class="section-head"><div><div class="eyebrow">Learning & recognition</div><h2>Credentials and achievements</h2></div></div>
     <div class="grid">
-      <article class="card"><h3>Certifications</h3><ul class="detail"><li><strong>CompTIA Security+</strong> — SY0-701 · May 2026</li><li><strong>Quick Heal Certified Digital Forensic Investigator</strong> — Apr 2026</li><li><strong>CompTIA Network+</strong> — N10-009 · Feb 2026</li><li><strong>Oracle Certified AI Foundations Associate</strong> — Jan 2026</li></ul></article>
-      <article class="card"><h3>Certificates & training</h3><ul class="detail"><li>IT Fundamentals — Quick Heal · Feb 2026</li><li>Network Configuration and Management — Quick Heal · Feb 2026</li><li>Pre Security — TryHackMe · Feb 2026</li><li>Cyber Security training — EdiGlobe · Feb–Mar 2025</li></ul></article>
-      <article class="card"><h3>Top 7% — TryHackMe</h3><p>Ranked within the top 7% of global users through hands-on labs focused on network analysis, exploitation fundamentals, and defensive security practices.</p><p><a href="https://tryhackme.com/p/Balu86" target="_blank" rel="noopener noreferrer">View TryHackMe profile ↗</a></p></article>
+      <article class="card"><h3>Certifications</h3><ul class="detail"><li><strong>CompTIA Security+</strong> — SY0-701 · May 2026 <a class="verify-link" href="https://www.credly.com/badges/6641ec58-e952-49ea-8ec5-538aacd80979" target="_blank" rel="noopener noreferrer">Verify ↗</a><li><strong>Quick Heal Certified Digital Forensic Investigator</strong> — Apr 2026 <a class="verify-link" href="https://lms.quickhealacademy.com/certificates/verification/exam?id=LPU-0000-152774" target="_blank" rel="noopener noreferrer">Verify ↗</a></li><li><strong>CompTIA Network+</strong> — N10-009 · Feb 2026 <a class="verify-link" href="https://www.credly.com/badges/648f08ba-8816-4cdb-9888-1a695b729d4d/public_url" target="_blank" rel="noopener noreferrer">Verify ↗</a></li><li><strong>Oracle Certified AI Foundations Associate</strong> — Jan 2026 <a class="verify-link" href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=3752A671C311D3EA0AA6964B5AE557DAD05DDA9BA5BC07219B73E27303262720" target="_blank" rel="noopener noreferrer">Verify ↗</a></li></ul></article>
+      <article class="card"><h3>Certificates & training</h3><ul class="detail"><li>IT Fundamentals — Quick Heal · Feb 2026 <a class="verify-link" href="https://lms.quickhealacademy.com/certificates/verification?id=LPU-0000-690185" target="_blank" rel="noopener noreferrer">Verify ↗</a></li><li>Network Configuration and Management — Quick Heal · Feb 2026 <a class="verify-link" href="https://lms.quickhealacademy.com/certificates/verification?id=LPU-0000-419861" target="_blank" rel="noopener noreferrer">Verify ↗</a></li><li>Pre Security — TryHackMe · Feb 2026 <a class="verify-link" href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-ZXONDX6MA8.pdf" target="_blank" rel="noopener noreferrer">Verify ↗</a></li><li>Cyber Security training — EdiGlobe · Feb–Mar 2025 <a class="verify-link" href="https://drive.google.com/file/d/1sXrHX9BalMElKuU-f1DNIe3t9ECRYsS-/view?usp=sharing" target="_blank" rel="noopener noreferrer">Verify ↗</a></li></ul></article>
+      <article class="card"><h3>Top 6% — TryHackMe</h3><p>Ranked within the top 6% of global users through hands-on labs focused on network analysis, exploitation fundamentals, and defensive security practices.</p><p><a href="https://tryhackme.com/p/Balu86" target="_blank" rel="noopener noreferrer">View TryHackMe profile ↗</a></p></article>
       <article class="card"><h3>Academic & leadership</h3><ul class="detail"><li>Highest CGPA in cohort — Jun 2026; maintained TGPA above 9.0.</li><li>Student Academic Advisory Committee Member, School of Computer Applications, LPU — Apr 2025.</li></ul></article>
     </div>
   </section>
